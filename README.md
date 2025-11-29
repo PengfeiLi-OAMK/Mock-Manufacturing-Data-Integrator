@@ -40,11 +40,6 @@ The goal is to demonstrate practical experience with **Python, Pandas, data clea
 - Handles timeouts, connection errors, and unexpected responses  
 - Logs submission results for each record
 
-### ✔ Configuration
-- All external parameters can be injected via environment variables:
-  - `IOT_RAW_FILE`
-  - `WATS_API`
-
 ---
 
 ## 📂 Project Structure
@@ -63,3 +58,49 @@ Mock-Manufacturing-Data-Integrator/
 ├── requirements.txt               # Python dependencies
 └── README.md                      # Project documentation
 ```
+---
+## ⚙️ Installation
+### 1. Clone the repository
+```bash
+git clone https://github.com/PengfeiLi-OAMK/Mock-Manufacturing-Data-Integrator.git
+cd Mock-Manufacturing-Data-Integrator
+```
+### 2.Create and activate a virtual environment
+```bash
+# Windows
+python -m venv venv
+venv\Scripts\activate
+
+# macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+```
+### 3.Install dependencies
+```bash
+pip install -r requirements.txt
+```
+### 4.Configure Environment 
+Create a .env file in the root directory (optional, if using python-dotenv):
+```bash
+FILE_PATH = your_file_path_here
+API_URL = your_api_url_here
+API_TOKEN = your_secure_token_here
+```
+---
+## 🚀 Usage
+### Run the main script to start the integration process:
+```bash
+python main.py
+```
+### Expected Output
+```text
+Data loaded successfully.
+Transformed 40 records.Dropped 8 invalid rows.
+Uploading report for Product ID: CTRL-BOARD-01...
+✅ Success! Server responded: 200
+[Debug] Server received: {'product_id': 'CTRL-BOARD-01', 'result': 'FAIL', 'temperature': 39.7, 'timestamp': '2025-01-01T00:00:00', 'voltage': 8.61}
+...
+```
+---
+## 📜 License
+MIT License — feel free to use or modify for your own projects or learning.
