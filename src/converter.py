@@ -34,13 +34,17 @@ def transform_data(df):
     for col in['voltage','temperature']:
         clean_df[col]=clean_df[col].astype(str).str.replace(r'[^\d.-]','', regex=True)
         clean_df[col]=pd.to_numeric(clean_df[col],errors='coerce')
+    clean_df = clean_df.dropna(subset=['voltage', 'temperature'])
 
     status_map = {
         "OK": "PASS", "ok": "PASS", "Pass": "PASS", "pass": "PASS",
         "FAIL": "FAIL", "Error": "FAIL"
     }
     clean_df['result'] = clean_df['result'].map(status_map).fillna('FAIL')
+	
+    clean_df['timestamp']=pd.to_datetime(clean_df['timestamp'], errors='coerce') 
+    clean_df = clean_df.dropna(subset=['timestamp'])
     clean_df['timestamp'] = clean_df['timestamp'].dt.strftime('%Y-%m-%dT%H:%M:%S')
-    clean_df = clean_df.dropna()
+    
     return clean_df.to_dict(orient='records')
 
