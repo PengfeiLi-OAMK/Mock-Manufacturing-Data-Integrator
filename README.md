@@ -52,7 +52,7 @@ Mock-Manufacturing-Data-Integrator/
 │   ├── __init__.py                # Package definition
 │   ├── converter.py               # Logic for loading and cleaning data
 │   └── mock_pywats.py             # Simulated SDK for API communication
-├── .env                           # Environment variables (API Key, URL)
+├── .env                           # Environment variables 
 ├── .gitignore                     # Git ignore rules (venv, __pycache__, .env)
 ├── main.py                        # Entry point of the application
 ├── requirements.txt               # Python dependencies

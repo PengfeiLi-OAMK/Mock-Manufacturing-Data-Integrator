@@ -1,3 +1,4 @@
 requests
 pandas
 openpyxl # For Excel file support
+python-dotenv
